@@ -30,8 +30,8 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
+    pool: testingagent
+      
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
@@ -83,8 +83,8 @@ stages:
   - deployment: DeployPullRequest
     displayName: Deploy Pull request
     condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
-    pool:
-      vmImage: $(vmImageName)
+    pool: testingagent
+      
 
     environment: 'potula86pipelinesjavascriptdocker-5218.$(k8sNamespaceForPR)'
     strategy:
