@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: potulapipelinesjavascriptdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: potulapipelinesjavascriptdocker
+  template:
+    metadata:
+      labels:
+        app: potulapipelinesjavascriptdocker 
+    spec:
+      containers:
+        - name: potulapipelinesjavascriptdocker 
+          image: payorch.azurecr.io/potulapipelinesjavascriptdocker
+          ports:
+          - containerPort: 8080
