@@ -123,7 +123,7 @@ stages:
 
           - task: Kubernetes@1
             name: get
-            displayName: 'Get services in the new namespace'
+            displayName: 'Get services in the new namespaces'
             continueOnError: true
             inputs:
               command: get
